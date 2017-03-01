@@ -1,0 +1,55 @@
+<!DOCTYPE mapper  
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quark.wreport.dao.EmpTaskFeedbackMapper">
+
+    <sql id="queryEmpTaskFeedbackColumns">
+		ID AS "id",
+		USER_ID AS "userId",
+		TASK_ID AS "taskId",
+		TASK_STAGE AS "taskStage",
+		TASK_REMARK AS "taskRemark",
+		APPLY_HOURS AS "applyHours",
+		APPLY_TIME AS "applyTime",
+		APPROVE_ID AS "approveId",
+		APPROVE_TIME AS "approveTime",
+		APPROVE_STATUS AS "approveStatus",
+		CREATE_TIME AS "createTime",
+		UPDATE_TIME AS "updateTime"
+	</sql>
+	
+	<sql id="insertEmpTaskFeedbackColumns">
+		USER_ID,TASK_ID,TASK_STAGE,TASK_REMARK,APPLY_HOURS,APPLY_TIME,
+		APPROVE_ID,APPROVE_TIME,APPROVE_STATUS,CREATE_TIME,UPDATE_TIME
+	</sql>
+
+    <!-- 根据userId查询该用户的所有任务反馈数据 -->
+	<select id="selectByUserId" resultType="com.quark.wreport.entity.EmpTaskFeedback">
+		SELECT
+		<include refid="queryEmpTaskFeedbackColumns" />
+		FROM BUSI_EMP_TASK_FEEDBACK
+		WHERE 
+			USER_ID = #{userId}
+		ORDER BY CREATE_TIME,UPDATE_TIME DESC
+	</select>
+	
+	<!-- 根据所有任务反馈数据 -->
+	<select id="selectAll" resultType="com.quark.wreport.entity.EmpTaskFeedback">
+		SELECT
+		<include refid="queryEmpTaskFeedbackColumns" />
+		FROM BUSI_EMP_TASK_FEEDBACK
+		ORDER BY CREATE_TIME,UPDATE_TIME DESC
+	</select>
+	
+	<!-- 新增任务反馈数据 -->
+	<select id="save" resultType="com.quark.wreport.entity.EmpTaskFeedback" parameterType="com.quark.wreport.entity.EmpTaskFeedback">
+		INSERT INTO BUSI_EMP_TASK_FEEDBACK
+		(
+		<include refid="insertEmpTaskFeedbackColumns" />
+		)
+		VALUES(#{userId},#{taskId},#{taskStage},#{taskRemark},#{applyHours},#{applyTime},
+		      #{approveId},#{approveTime},#{approveStatus},#{createTime},#{updateTime})
+	</select>
+
+</mapper>
