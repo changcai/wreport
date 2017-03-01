@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>报工系统</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(app) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- Bootstrap Core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- angular bootstrap csp CSS -->
+    <link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/site.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="wreportApp" id="wrapper">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <topnav></topnav>
+    <leftnav></leftnav>
+  </nav>
+
+  <div id="page-wrapper">
+    <div class="container-fluid" ng-view>
+    </div>
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+
+
+  <script src="scripts/app.js"></script>
+  <script src="scripts/directives/leftnav.js"></script>
+  <script src="scripts/directives/topnav.js"></script>
+  <script src="scripts/services/usersevice.js"></script>
+  <script src="scripts/services/questionservice.js"></script>
+  <script src="scripts/services/dictservice.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/questioncontroller.js"></script>
+  <script src="scripts/controllers/choicemodalcontroller.js"></script>
+  <script src="scripts/controllers/truefalsemodalcontroller.js"></script>
+  <script src="scripts/controllers/essaymodalcontroller.js"></script>
+  <script src="scripts/controllers/examination.js"></script>
+  <script src="scripts/services/examinationservice.js"></script>
+
+  </body>
+</html>
