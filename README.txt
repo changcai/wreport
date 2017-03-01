@@ -1,1 +1,1 @@
-这是一个报工系统
+wreport仓库包含两个项目：1，wreport报工系统后台；2，wreport-ui报工系统前端
